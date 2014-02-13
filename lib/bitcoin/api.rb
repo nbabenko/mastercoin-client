@@ -8,17 +8,23 @@ class Bitcoin::API
   def port; options[:port]; end
   def ssl;  options[:ssl];  end
   def ssl?; options[:ssl];  end
+  def open_timeout; options[:open_timeout]; end
+  def read_timeout; options[:read_timeout]; end
   def user=(a); options[:user] = a; end
   def pass=(a); options[:pass] = a; end
   def host=(a); options[:host] = a; end
   def port=(a); options[:port] = a; end
+  def open_timeout=(a); options[:open_timeout] = a; end
+  def read_timeout=(a); options[:read_timeout] = a; end
   def ssl=(a);  options[:ssl]  = a; end
 
   def initialize(options = {})
     @options = {
       :host => 'localhost',
       :port => 8332,
-      :ssl  => false
+      :ssl  => false,
+      :open_timeout => 1,
+      :read_timeout => 1
     }.merge(options)
   end
   

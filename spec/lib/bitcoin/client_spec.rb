@@ -8,6 +8,8 @@ describe Bitcoin::Client do
     subject.pass.should == $pass
     subject.host.should == 'localhost'
     subject.port.should == 8332
+    subject.open_timeout.should == 1
+    subject.read_timeout.should == 1
     subject.should_not be_ssl
   end
 

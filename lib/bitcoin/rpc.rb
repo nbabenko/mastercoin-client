@@ -4,6 +4,7 @@ class Bitcoin::RPC
   def initialize(options)
     @user, @pass = options[:user], options[:pass]
     @host, @port = options[:host], options[:port]
+    @open_timeout, @read_timeout = options[:open_timeout], options[:read_timeout]
     @ssl = options[:ssl]
   end
 
@@ -23,7 +24,11 @@ class Bitcoin::RPC
   end
 
   def dispatch(request)
-    RestClient.post(service_url, request.to_post_data, content_type: :json) do |respdata, request, result|
+    RestClient.post(service_url, request.to_post_data,
+                    content_type: :json,
+                    open_timeout: @open_timeout,
+                    timeout: @read_timeout
+    ) do |respdata, request, result|
       response = JSON.parse(respdata)
       raise Bitcoin::Errors::RPCError, response['error'] if response['error']
       response['result']

@@ -6,11 +6,14 @@ class Bitcoin::Client
   def port; api.port; end
   def ssl;  api.ssl;  end
   def ssl?; api.ssl?; end
+  def open_timeout; api.open_timeout; end
+  def read_timeout; api.read_timeout; end
   def user=(a); api.user = a; end
   def pass=(a); api.pass = a; end
   def host=(a); api.host = a; end
   def port=(a); api.port = a; end
   def ssl=(a);  api.ssl  = a; end
+  def open_timeout=(a); api.open_timeout = a; end
 
   def options
     api.options
