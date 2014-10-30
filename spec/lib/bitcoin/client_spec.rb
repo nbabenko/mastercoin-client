@@ -1,7 +1,9 @@
 require 'spec_helper'
+require 'bitcoin-client'
 
-describe Bitcoin::Client do
-  subject { Bitcoin::Client.new($user, $pass) }
+
+describe Mastercoin::Client do
+  subject { Mastercoin::Client.new($user, $pass) }
 
   it "defaults" do
     subject.user.should == $user

@@ -1,8 +1,9 @@
 require 'spec_helper'
+require 'bitcoin-client'
 
 describe Bitcoin::API do
   subject { Bitcoin::API.new(:user => $user, :pass => $pass) }
-  
+
   it "should have default host, port, ssl and timeouts" do
     subject.host.should == 'localhost'
     subject.port.should == 8332
@@ -10,7 +11,7 @@ describe Bitcoin::API do
     subject.read_timeout.should == 1
     subject.ssl?.should be_false
   end
-  
+
   it "should accept host, port, ssl options" do
     req = Bitcoin::API.new(
         :user => $user,
@@ -27,7 +28,7 @@ describe Bitcoin::API do
     req.read_timeout.should == 2
     req.ssl?.should be_true
   end
-  
+
   it "should build an options hash" do
     subject.to_hash.should == {
       :user => $user,

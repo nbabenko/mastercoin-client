@@ -3,11 +3,11 @@ Coveralls.wear!
 
 require 'fakeweb'
 
-# bitcoin user settings
+# mastercoin user settings
 $user = 'user'
 $pass = 'pass'
 
-require File.expand_path('../lib/bitcoin-client', File.dirname(__FILE__))
+require File.expand_path('../lib/mastercoin-client', File.dirname(__FILE__))
 
 Dir[File.expand_path("support/**/*.rb", File.dirname(__FILE__))].each { |f| require f }
 

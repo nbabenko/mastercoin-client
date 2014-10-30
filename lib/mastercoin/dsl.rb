@@ -1,6 +1,6 @@
 module Bitcoin::DSL
   def bitcoin
-    if self.class.respond_to?(:bitcoin)
+    if self.class.respond_to?(:mastercoin)
       @client ||= Bitcoin::Client.new(self.class.bitcoin.user, self.class.bitcoin.pass, self.class.bitcoin.options)
     else
       @client ||= Bitcoin::Client.new(nil, nil)
@@ -62,7 +62,7 @@ module Bitcoin::DSL
     bitcoin.getaccount bitcoinaddress
   end
   
-  # Returns the current bitcoin address for receiving payments to this account. 
+  # Returns the current mastercoin address for receiving payments to this account.
   def getaccountaddress(account)
     bitcoin.getaccountaddress account
   end
@@ -129,7 +129,7 @@ module Bitcoin::DSL
     bitcoin.getmininginfo
   end
 
-  # Returns a new bitcoin address for receiving payments. If +account+ is specified (recommended),
+  # Returns a new mastercoin address for receiving payments. If +account+ is specified (recommended),
   # it is added to the address book so payments received with the address will be credited to +account+.
   def getnewaddress(account = nil)
     bitcoin.getnewaddress account
@@ -226,7 +226,7 @@ module Bitcoin::DSL
     bitcoin.setgenerate generate, genproclimit
   end
   
-  # Stop bitcoin server. 
+  # Stop mastercoin server.
   def stop
     bitcoin.stop
   end
