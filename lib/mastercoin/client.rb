@@ -78,6 +78,10 @@ class Mastercoin::Client < ::Bitcoin::Client
   def listblocktransactionsMP(height)
     @api.request 'getactivedexsells_MP', height
   end
+  
+  def getblockhash(index)
+    @api.request 'getblockhash', index
+  end
 
   alias send_MP sendMP
   alias getbalance_MP getbalanceMP
@@ -92,5 +96,6 @@ class Mastercoin::Client < ::Bitcoin::Client
   alias sendtoowners_MP sendtoownersMP
   alias getactivedexsells_MP getactivedexsellsMP
   alias getgrants_MP getgrantsMP
+  alias listblocktransactions_MP listblocktransactionsMP
   alias listblocktransactions_MP listblocktransactionsMP
 end
