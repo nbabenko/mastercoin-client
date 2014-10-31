@@ -78,7 +78,8 @@ class Mastercoin::Client < ::Bitcoin::Client
   def listblocktransactionsMP(height)
     @api.request 'getactivedexsells_MP', height
   end
-  
+
+  # Returns hash of block in best-block-chain at <index>; index 0 is the genesis block
   def getblockhash(index)
     @api.request 'getblockhash', index
   end
