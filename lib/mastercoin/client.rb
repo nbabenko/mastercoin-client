@@ -40,7 +40,7 @@ class Mastercoin::Client < ::Bitcoin::Client
 
   # Retrieving information about a Master Protocol property
   def getpropertyMP(propertyid)
-    @api.request 'getproperty_MP'
+    @api.request 'getproperty_MP', propertyid
   end
 
   # Listing Master Protocol properties
