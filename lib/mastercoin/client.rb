@@ -76,7 +76,7 @@ class Mastercoin::Client < ::Bitcoin::Client
 
   # Return all Master Protocol transactions in a block
   def listblocktransactionsMP(height)
-    @api.request 'getactivedexsells_MP', height
+    @api.request 'listblocktransactions_MP', height
   end
 
   # Returns hash of block in best-block-chain at <index>; index 0 is the genesis block
@@ -97,6 +97,5 @@ class Mastercoin::Client < ::Bitcoin::Client
   alias sendtoowners_MP sendtoownersMP
   alias getactivedexsells_MP getactivedexsellsMP
   alias getgrants_MP getgrantsMP
-  alias listblocktransactions_MP listblocktransactionsMP
   alias listblocktransactions_MP listblocktransactionsMP
 end
